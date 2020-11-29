@@ -1,5 +1,5 @@
 # Marlin-E3-Latest
-Custom Marlin 2.0.x for Stock Ender 3
+Custom Marlin 2.0.x for Ender 3 with an SKR E3 Turbo
   - BLTouch 3.1
     - Bilinear Bed Levelling enabled
 
