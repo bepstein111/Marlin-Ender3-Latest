@@ -4,18 +4,20 @@ Custom Marlin 2.0.x for Ender 3 with an SKR E3 Turbo
   - BLTouch 3.1
     - UBL Bed Levelling enabled (3x3 grid)
     - Safe-Z Homing in bed center
+  - X+Y Sensorless Homing Enabled
   - Junction Deviation and S-Curve Enabled (Linear Advance disabled)
   - Babystepping Implemented and combined with Z-Offset for easy live Z-updates (just double click the knob during a print)
   - Extruder Microstepping increased to x64 for increased torque (steps/mm updated as needed)
+  - XYZE Interpolation ON on, hybrid mode ON (100,100,5,60)
   - Acceleration + Speed limits upped to more reasonable (but still quite usable) settings
-  - Increased Probing Time for faster Bed Levelling
+  - Increased Probing Speed for faster Bed Levelling & Homing
   - Increased Bed Dimensions to utilize full Bed area
-  - Filament Runout Sensors enabled
+  - Filament Runout Sensor enabled
   - Print counter and timer enabled for some nice printer stats under "Info" 
   - Compatible with Standard CR-10/Ender-3 Display and BTT TFTxx's in Marlin mode.
   - Controller Fan enabled on header FAN1
   - HE1 has been requisitioned as a third PWM fan for the extruder fan (not the part-cooling fan)
-  - Slowdown divisor increased to help prevent unexpected slowdowns
+  - Slowdown divisor increased to 4 to help prevent unexpected slowdowns 
   - Most extra graphics enabled (small info font, M73 progress bar, rotating (P)rogress, (E)lapsed, and (R)emaining time, etc.
   - Arc Support Enabled for use with Arc-Welder
 
