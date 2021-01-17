@@ -1096,17 +1096,17 @@
    * LED Control Menu
    * Add LED Control to the LCD menu
    */
-  //#define LED_CONTROL_MENU
+  #define LED_CONTROL_MENU
   #if ENABLED(LED_CONTROL_MENU)
     #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
     //#define NEO2_COLOR_PRESETS              // Enable a second NeoPixel Preset Color menu option
     #if ENABLED(LED_COLOR_PRESETS)
       #define LED_USER_PRESET_RED        255  // User defined RED value
-      #define LED_USER_PRESET_GREEN      128  // User defined GREEN value
-      #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
+      #define LED_USER_PRESET_GREEN      255  // User defined GREEN value
+      #define LED_USER_PRESET_BLUE       255  // User defined BLUE value
       #define LED_USER_PRESET_WHITE      255  // User defined WHITE value
       #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-      //#define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
+      #define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
     #endif
     #if ENABLED(NEO2_COLOR_PRESETS)
       #define NEO2_USER_PRESET_RED        255  // User defined RED value
@@ -1653,10 +1653,10 @@
  *
  * See https://marlinfw.org/docs/features/lin_advance.html for full instructions.
  */
-//#define LIN_ADVANCE
+#define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
-  #define LIN_ADVANCE_K 0.0    // Unit: mm compression per 1mm/s extruder speed
+  #define LIN_ADVANCE_K 0.82    // Unit: mm compression per 1mm/s extruder speed
   //#define LA_DEBUG            // If enabled, this will generate debug information output over USB.
   //#define EXPERIMENTAL_SCURVE   // Enable this option to permit S-Curve Acceleration
 #endif
@@ -1697,17 +1697,17 @@
  */
 #if PROBE_SELECTED && !IS_KINEMATIC
   // #define PROBING_MARGIN_LEFT PROBING_MARGIN
-     #define PROBING_MARGIN_RIGHT 47
-  // #define PROBING_MARGIN_FRONT PROBING_MARGIN
-  // #define PROBING_MARGIN_BACK PROBING_MARGIN
+  // #define PROBING_MARGIN_RIGHT 55
+  // #define PROBING_MARGIN_FRONT 25
+  // #define PROBING_MARGIN_BACK  15
 #endif
 
 #if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
   // Override the mesh area if the automatic (max) area is too large
     #define MESH_MIN_X MESH_INSET
     #define MESH_MIN_Y 25
-    #define MESH_MAX_X X_BED_SIZE - (47)
-    #define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
+    #define MESH_MAX_X X_BED_SIZE - (56)
+    #define MESH_MAX_Y Y_BED_SIZE - (14)
 #endif
 
 /**
@@ -1801,7 +1801,7 @@
   #define MIN_ARC_SEGMENTS       24 // Minimum number of segments in a complete circle
   //#define ARC_SEGMENTS_PER_SEC 50 // Use feedrate to choose segment length (with MM_PER_ARC_SEGMENT as the minimum)
   #define N_ARC_CORRECTION       25 // Number of interpolated segments between corrections
-  //#define ARC_P_CIRCLES           // Enable the 'P' parameter to specify complete circles
+  #define ARC_P_CIRCLES           // Enable the 'P' parameter to specify complete circles
   //#define CNC_WORKSPACE_PLANES    // Allow G2/G3 to operate in XY, ZX, or YZ planes
   //#define SF_ARC_FIX              // Enable only if using SkeinForge with "Arc Point" fillet procedure
 #endif
@@ -2274,13 +2274,13 @@
     #define X_CHAIN_POS      -1    // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
   #endif
 
-  #if AXIS_IS_TMC(X2)
-    #define X2_CURRENT      800
-    #define X2_CURRENT_HOME X2_CURRENT
-    #define X2_MICROSTEPS    16
-    #define X2_RSENSE         0.11
-    #define X2_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(X2)
+  //   #define X2_CURRENT      800
+  //   #define X2_CURRENT_HOME X2_CURRENT
+  //   #define X2_MICROSTEPS    16
+  //   #define X2_RSENSE         0.11
+  //   #define X2_CHAIN_POS     -1
+  // #endif
 
   #if AXIS_IS_TMC(Y)
     #define Y_CURRENT       580
@@ -2290,13 +2290,13 @@
     #define Y_CHAIN_POS      -1
   #endif
 
-  #if AXIS_IS_TMC(Y2)
-    #define Y2_CURRENT      800
-    #define Y2_CURRENT_HOME Y2_CURRENT
-    #define Y2_MICROSTEPS    16
-    #define Y2_RSENSE         0.11
-    #define Y2_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(Y2)
+  //   #define Y2_CURRENT      800
+  //   #define Y2_CURRENT_HOME Y2_CURRENT
+  //   #define Y2_MICROSTEPS    16
+  //   #define Y2_RSENSE         0.11
+  //   #define Y2_CHAIN_POS     -1
+  // #endif
 
   #if AXIS_IS_TMC(Z)
     #define Z_CURRENT       580
@@ -2306,85 +2306,85 @@
     #define Z_CHAIN_POS      -1
   #endif
 
-  #if AXIS_IS_TMC(Z2)
-    #define Z2_CURRENT      800
-    #define Z2_CURRENT_HOME Z2_CURRENT
-    #define Z2_MICROSTEPS    16
-    #define Z2_RSENSE         0.11
-    #define Z2_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(Z2)
+  //   #define Z2_CURRENT      800
+  //   #define Z2_CURRENT_HOME Z2_CURRENT
+  //   #define Z2_MICROSTEPS    16
+  //   #define Z2_RSENSE         0.11
+  //   #define Z2_CHAIN_POS     -1
+  // #endif
 
-  #if AXIS_IS_TMC(Z3)
-    #define Z3_CURRENT      800
-    #define Z3_CURRENT_HOME Z3_CURRENT
-    #define Z3_MICROSTEPS    16
-    #define Z3_RSENSE         0.11
-    #define Z3_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(Z3)
+  //   #define Z3_CURRENT      800
+  //   #define Z3_CURRENT_HOME Z3_CURRENT
+  //   #define Z3_MICROSTEPS    16
+  //   #define Z3_RSENSE         0.11
+  //   #define Z3_CHAIN_POS     -1
+  // #endif
 
-  #if AXIS_IS_TMC(Z4)
-    #define Z4_CURRENT      800
-    #define Z4_CURRENT_HOME Z4_CURRENT
-    #define Z4_MICROSTEPS    16
-    #define Z4_RSENSE         0.11
-    #define Z4_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(Z4)
+  //   #define Z4_CURRENT      800
+  //   #define Z4_CURRENT_HOME Z4_CURRENT
+  //   #define Z4_MICROSTEPS    16
+  //   #define Z4_RSENSE         0.11
+  //   #define Z4_CHAIN_POS     -1
+  // #endif
 
   #if AXIS_IS_TMC(E0)
     #define E0_CURRENT      650
-    #define E0_MICROSTEPS    64
+    #define E0_MICROSTEPS    16
     #define E0_RSENSE        0.11
     #define E0_CHAIN_POS     -1
   #endif
 
-  #if AXIS_IS_TMC(E1)
-    #define E1_CURRENT      650
-    #define E1_MICROSTEPS    16
-    #define E1_RSENSE         0.11
-    #define E1_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(E1)
+  //   #define E1_CURRENT      650
+  //   #define E1_MICROSTEPS    16
+  //   #define E1_RSENSE         0.11
+  //   #define E1_CHAIN_POS     -1
+  // #endif
 
-  #if AXIS_IS_TMC(E2)
-    #define E2_CURRENT      800
-    #define E2_MICROSTEPS    16
-    #define E2_RSENSE         0.11
-    #define E2_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(E2)
+  //   #define E2_CURRENT      800
+  //   #define E2_MICROSTEPS    16
+  //   #define E2_RSENSE         0.11
+  //   #define E2_CHAIN_POS     -1
+  // #endif
 
-  #if AXIS_IS_TMC(E3)
-    #define E3_CURRENT      800
-    #define E3_MICROSTEPS    16
-    #define E3_RSENSE         0.11
-    #define E3_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(E3)
+  //   #define E3_CURRENT      800
+  //   #define E3_MICROSTEPS    16
+  //   #define E3_RSENSE         0.11
+  //   #define E3_CHAIN_POS     -1
+  // #endif
 
-  #if AXIS_IS_TMC(E4)
-    #define E4_CURRENT      800
-    #define E4_MICROSTEPS    16
-    #define E4_RSENSE         0.11
-    #define E4_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(E4)
+  //   #define E4_CURRENT      800
+  //   #define E4_MICROSTEPS    16
+  //   #define E4_RSENSE         0.11
+  //   #define E4_CHAIN_POS     -1
+  // #endif
 
-  #if AXIS_IS_TMC(E5)
-    #define E5_CURRENT      800
-    #define E5_MICROSTEPS    16
-    #define E5_RSENSE         0.11
-    #define E5_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(E5)
+  //   #define E5_CURRENT      800
+  //   #define E5_MICROSTEPS    16
+  //   #define E5_RSENSE         0.11
+  //   #define E5_CHAIN_POS     -1
+  // #endif
 
-  #if AXIS_IS_TMC(E6)
-    #define E6_CURRENT      800
-    #define E6_MICROSTEPS    16
-    #define E6_RSENSE         0.11
-    #define E6_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(E6)
+  //   #define E6_CURRENT      800
+  //   #define E6_MICROSTEPS    16
+  //   #define E6_RSENSE         0.11
+  //   #define E6_CHAIN_POS     -1
+  // #endif
 
-  #if AXIS_IS_TMC(E7)
-    #define E7_CURRENT      800
-    #define E7_MICROSTEPS    16
-    #define E7_RSENSE         0.11
-    #define E7_CHAIN_POS     -1
-  #endif
+  // #if AXIS_IS_TMC(E7)
+  //   #define E7_CURRENT      800
+  //   #define E7_MICROSTEPS    16
+  //   #define E7_RSENSE         0.11
+  //   #define E7_CHAIN_POS     -1
+  // #endif
 
   /**
    * Override default SPI pins for TMC2130, TMC2160, TMC2660, TMC5130 and TMC5160 drivers here.
@@ -2505,7 +2505,7 @@
    * STEALTHCHOP_(XY|Z|E) must be enabled to use HYBRID_THRESHOLD.
    * M913 X/Y/Z/E to live tune the setting
    */
-  //#define HYBRID_THRESHOLD
+  #define HYBRID_THRESHOLD
 
   #define X_HYBRID_THRESHOLD     100  // [mm/s]
   #define X2_HYBRID_THRESHOLD    100
@@ -2515,7 +2515,7 @@
   #define Z2_HYBRID_THRESHOLD      3
   #define Z3_HYBRID_THRESHOLD      3
   #define Z4_HYBRID_THRESHOLD      3
-  #define E0_HYBRID_THRESHOLD     30
+  #define E0_HYBRID_THRESHOLD     60
   #define E1_HYBRID_THRESHOLD     30
   #define E2_HYBRID_THRESHOLD     30
   #define E3_HYBRID_THRESHOLD     30
@@ -2553,9 +2553,9 @@
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  75
+    #define X_STALL_SENSITIVITY  74
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  75
+    #define Y_STALL_SENSITIVITY  69
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
     //#define Z_STALL_SENSITIVITY  8
     //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY
